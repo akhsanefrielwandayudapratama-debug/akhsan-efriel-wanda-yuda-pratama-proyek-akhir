@@ -1,0 +1,6 @@
+A001|rahma|batuk
+A002|saiful|diabetes
+A003|kiya|demam
+A004|latifah|muntaber
+A005|agus salim|pusing
+A006|awaludin|pusing

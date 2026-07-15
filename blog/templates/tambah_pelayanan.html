@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow-lg">
+
+    <div class="card-header bg-primary text-white">
+
+        <h3>
+            <i class="bi bi-plus-circle-fill"></i>
+            Tambah Data Pelayanan
+        </h3>
+
+    </div>
+
+    <div class="card-body">
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="mb-3">
+
+                <label>Pasien</label>
+
+                <select name="pasien" class="form-control" required>
+
+                    {% for p in pasien %}
+
+                    <option value="{{ p.id }}">
+                        {{ p.nama }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Dokter</label>
+
+                <select name="dokter" class="form-control" required>
+
+                    {% for d in dokter %}
+
+                    <option value="{{ d.id }}">
+                        {{ d.nama }}
+                    </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Keluhan</label>
+
+                <textarea
+                    name="keluhan"
+                    class="form-control"
+                    rows="3"
+                    required></textarea>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Diagnosa</label>
+
+                <textarea
+                    name="diagnosa"
+                    class="form-control"
+                    rows="3"
+                    required></textarea>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Tanggal</label>
+
+                <input
+                    type="date"
+                    name="tanggal"
+                    class="form-control"
+                    required>
+
+            </div>
+
+            <button class="btn btn-success">
+
+                <i class="bi bi-save"></i>
+
+                Simpan
+
+            </button>
+
+            <a href="/pelayanan/" class="btn btn-secondary">
+
+                Kembali
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

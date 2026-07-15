@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="text-center mb-4">
+    Data Dokter Klinik
+</h1>
+
+<a href="{% url 'tambah_dokter' %}" class="btn btn-primary mb-3">
+    + Tambah Dokter
+</a>
+
+<table class="table table-bordered table-striped">
+
+    <thead class="table-dark">
+        <tr>
+            <th>No</th>
+            <th>Nama Dokter</th>
+            <th>Spesialis</th>
+            <th>No HP</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for dokter in data_dokter %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ dokter.nama }}</td>
+        <td>{{ dokter.spesialis }}</td>
+        <td>{{ dokter.no_hp }}</td>
+
+        <td>
+            <a href="/edit-dokter/{{ dokter.id }}/"
+               class="btn btn-warning btn-sm">
+                Edit
+            </a>
+
+            <a href="/hapus-dokter/{{ dokter.id }}/"
+               class="btn btn-danger btn-sm"
+               onclick="return confirm('Yakin ingin menghapus data dokter ini?')">
+                Hapus
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

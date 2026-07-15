@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Sistem Informasi Klinik</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+
+body{
+    background: linear-gradient(135deg,#0d6efd,#6ea8fe);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-card{
+    width:430px;
+    border:none;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.logo{
+    font-size:70px;
+    color:#0d6efd;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.btn-login{
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.footer{
+    font-size:13px;
+    color:gray;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card login-card">
+
+<div class="card-body p-5">
+
+<div class="text-center mb-4">
+
+<i class="bi bi-hospital-fill logo"></i>
+
+<h3 class="fw-bold mt-2">
+Sistem Informasi Klinik
+</h3>
+
+<p class="text-muted">
+Silakan login untuk melanjutkan
+</p>
+
+</div>
+
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-{{ message.tags }}">
+{{ message }}
+</div>
+
+{% endfor %}
+{% endif %}
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="mb-3">
+
+<label class="form-label">
+Username
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+<i class="bi bi-person-fill"></i>
+</span>
+
+<input
+type="text"
+name="username"
+class="form-control"
+placeholder="Masukkan username"
+required>
+
+</div>
+
+</div>
+
+<div class="mb-4">
+
+<label class="form-label">
+Password
+</label>
+
+<div class="input-group">
+
+<span class="input-group-text">
+<i class="bi bi-lock-fill"></i>
+</span>
+
+<input
+type="password"
+name="password"
+class="form-control"
+placeholder="Masukkan password"
+required>
+
+</div>
+
+</div>
+
+<button class="btn btn-primary btn-login w-100">
+
+<i class="bi bi-box-arrow-in-right"></i>
+
+Login
+
+</button>
+
+</form>
+
+<hr>
+
+<div class="text-center footer">
+
+© 2026 Sistem Informasi Klinik
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
